@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{36E186C7-0AD1-4553-BA7E-5B73B0B4D0D6}" Name="AnimalProfiling">
+      <DtsConnectionManagerID>AnimalProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{14B2B4F4-D376-4E65-AA99-CF5ACB298834}" Name="BreedProfiling">
+      <DtsConnectionManagerID>BreedProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{8889C271-A4C3-4947-B8EE-DCDF172A2398}" Name="ColorProfiling">
+      <DtsConnectionManagerID>ColorProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{292B82DF-4C52-4B4E-A574-251C83775923}" Name="IntakesProfiling">
+      <DtsConnectionManagerID>IntakesProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}" Name="LAPTOP-B19IHBEF.AustinAnimalCenter_Staging">
+      <DtsConnectionManagerID>LAPTOP-B19IHBEF.AustinAnimalCenter_Staging</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{C171DC26-17C7-46C5-994E-018CA8C38D32}" Name="OutcomeProfiling">
+      <DtsConnectionManagerID>OutcomeProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{EAC87B69-A231-48A9-A176-28FC2A48720D}" Name="SexTypeProfiling">
+      <DtsConnectionManagerID>SexTypeProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{2CB5A59F-8BE6-4785-A76A-AB3EB627B0CC}" Name="StraymapProfiling">
+      <DtsConnectionManagerID>StraymapProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgSexType" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgSexType" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgSexType" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgSexType" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgSexType" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgSexType" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <FunctionalDependencyProfileRequest ID="FDReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgSexType" />
+        <DeterminantColumns>
+          <Column IsWildCard="true" />
+        </DeterminantColumns>
+        <DependentColumn IsWildCard="true" />
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <FDStrengthThreshold>0.95</FDStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </FunctionalDependencyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Sex_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Sex" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Status" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Sex_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>2</MinLength>
+        <MaxLength>2</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>2</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Sex" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>6</MinLength>
+        <MaxLength>8</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>4</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Status" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>4</MinLength>
+        <MaxLength>7</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>3</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <KeyColumns>
+          <Column Name="Sex_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Sex_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>7</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>IF</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>IM</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>NF</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>NM</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SF</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>SM</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>UN</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Sex" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>4</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Intact </Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Neutered</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Spayed</Value>
+            <Count>2</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Unknown</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Status" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>3</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Female</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Male</Value>
+            <Count>3</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Unknown</Value>
+            <Count>1</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Sex_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>SF</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>IF</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>UN</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>NM</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>IM</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SM</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>NF</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Sex" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>NEUTERED</RegexText>
+            <Frequency>29</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>INTACT</RegexText>
+            <Frequency>29</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>SPAYED</RegexText>
+            <Frequency>29</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>UNKNOWN</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <Column Name="Status" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>FEMALE</RegexText>
+            <Frequency>43</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>MALE</RegexText>
+            <Frequency>43</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>UNKNOWN</RegexText>
+            <Frequency>14</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <DeterminantColumns>
+          <Column Name="Sex_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Status" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgSexType" RowCount="7" />
+        <DeterminantColumns>
+          <Column Name="Sex_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Sex" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

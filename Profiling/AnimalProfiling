@@ -1,0 +1,1851 @@
+<?xml version="1.0"?>
+<DataProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/sqlserver/2008/DataDebugger/">
+  <ProfileVersion>1.0</ProfileVersion>
+  <DataSources>
+    <DtsDataSource ID="{36E186C7-0AD1-4553-BA7E-5B73B0B4D0D6}" Name="AnimalProfiling">
+      <DtsConnectionManagerID>AnimalProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{14B2B4F4-D376-4E65-AA99-CF5ACB298834}" Name="BreedProfiling">
+      <DtsConnectionManagerID>BreedProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{8889C271-A4C3-4947-B8EE-DCDF172A2398}" Name="ColorProfiling">
+      <DtsConnectionManagerID>ColorProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{292B82DF-4C52-4B4E-A574-251C83775923}" Name="IntakesProfiling">
+      <DtsConnectionManagerID>IntakesProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}" Name="LAPTOP-B19IHBEF.AustinAnimalCenter_Staging">
+      <DtsConnectionManagerID>LAPTOP-B19IHBEF.AustinAnimalCenter_Staging</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{C171DC26-17C7-46C5-994E-018CA8C38D32}" Name="OutcomeProfiling">
+      <DtsConnectionManagerID>OutcomeProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{EAC87B69-A231-48A9-A176-28FC2A48720D}" Name="SexTypeProfiling">
+      <DtsConnectionManagerID>SexTypeProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+    <DtsDataSource ID="{2CB5A59F-8BE6-4785-A76A-AB3EB627B0CC}" Name="StraymapProfiling">
+      <DtsConnectionManagerID>StraymapProfiling</DtsConnectionManagerID>
+    </DtsDataSource>
+  </DataSources>
+  <DataProfileInput>
+    <ProfileMode>Exact</ProfileMode>
+    <Timeout>0</Timeout>
+    <Requests>
+      <ColumnNullRatioProfileRequest ID="NullRatioReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgAnimal" />
+        <Column IsWildCard="true" />
+      </ColumnNullRatioProfileRequest>
+      <ColumnStatisticsProfileRequest ID="StatisticsReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgAnimal" />
+        <Column IsWildCard="true" />
+      </ColumnStatisticsProfileRequest>
+      <ColumnLengthDistributionProfileRequest ID="LengthDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgAnimal" />
+        <Column IsWildCard="true" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+      </ColumnLengthDistributionProfileRequest>
+      <ColumnValueDistributionProfileRequest ID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgAnimal" />
+        <Column IsWildCard="true" />
+        <Option>FrequentValues</Option>
+        <FrequentValueThreshold>0.001</FrequentValueThreshold>
+      </ColumnValueDistributionProfileRequest>
+      <ColumnPatternProfileRequest ID="PatternReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgAnimal" />
+        <Column IsWildCard="true" />
+        <MaxNumberOfPatterns>10</MaxNumberOfPatterns>
+        <PercentageDataCoverageDesired>95</PercentageDataCoverageDesired>
+        <CaseSensitive>false</CaseSensitive>
+        <Delimiters> \t\r\n</Delimiters>
+        <Symbols>,.;:-"'`~=&amp;/\\@!?()&lt;&gt;[]{}|#*^%</Symbols>
+        <TagTableName />
+      </ColumnPatternProfileRequest>
+      <CandidateKeyProfileRequest ID="KeyReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgAnimal" />
+        <KeyColumns>
+          <Column IsWildCard="true" />
+        </KeyColumns>
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <KeyStrengthThreshold>0.95</KeyStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </CandidateKeyProfileRequest>
+      <FunctionalDependencyProfileRequest ID="FDReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table Schema="dbo" Table="StgAnimal" />
+        <DeterminantColumns>
+          <Column IsWildCard="true" />
+        </DeterminantColumns>
+        <DependentColumn IsWildCard="true" />
+        <ThresholdSetting>Specified</ThresholdSetting>
+        <FDStrengthThreshold>0.95</FDStrengthThreshold>
+        <VerifyOutputInFastMode>false</VerifyOutputInFastMode>
+        <MaxNumberOfViolations>100</MaxNumberOfViolations>
+      </FunctionalDependencyProfileRequest>
+    </Requests>
+  </DataProfileInput>
+  <DataProfileOutput>
+    <Profiles>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Name" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Date_of_Birth" SqlDbType="Date" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>431</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Animal_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Stray_Map_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>110910</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Color_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnNullRatioProfile ProfileRequestID="NullRatioReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Breed_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NullCount>0</NullCount>
+      </ColumnNullRatioProfile>
+      <ColumnStatisticsProfile IsExact="true" ProfileRequestID="StatisticsReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Date_of_Birth" SqlDbType="Date" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <MinValue>1991-12-11T00:00:00.0000000</MinValue>
+        <MaxValue>2021-02-10T00:00:00.0000000</MaxValue>
+      </ColumnStatisticsProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>7</MinLength>
+        <MaxLength>7</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>110926</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Name" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>1</MinLength>
+        <MaxLength>24</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>23</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>2862</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>15</Length>
+            <Count>46</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>2751</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>12</Length>
+            <Count>754</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>16982</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>21</Length>
+            <Count>8</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>49507</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>1</Length>
+            <Count>80</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>24</Length>
+            <Count>1</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>18</Length>
+            <Count>10</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>10</Length>
+            <Count>1729</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>11493</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>19</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>13</Length>
+            <Count>65</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>17391</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>22</Length>
+            <Count>2</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>16</Length>
+            <Count>27</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>2</Length>
+            <Count>348</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>17</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>11</Length>
+            <Count>927</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>20</Length>
+            <Count>7</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>14</Length>
+            <Count>63</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>8</Length>
+            <Count>5863</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Animal_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>3</MinLength>
+        <MaxLength>9</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>9</Length>
+            <Count>22</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>3</Length>
+            <Count>103736</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>4</Length>
+            <Count>586</Count>
+          </LengthDistributionItem>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>6582</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Stray_Map_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>7</MinLength>
+        <MaxLength>7</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>7</Length>
+            <Count>16</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Color_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>5</MinLength>
+        <MaxLength>5</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>5</Length>
+            <Count>110926</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <ColumnLengthDistributionProfile ProfileRequestID="LengthDistReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Breed_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IgnoreLeadingSpace>false</IgnoreLeadingSpace>
+        <IgnoreTrailingSpace>true</IgnoreTrailingSpace>
+        <MinLength>6</MinLength>
+        <MaxLength>6</MaxLength>
+        <LengthDistribution>
+          <LengthDistributionItem>
+            <Length>6</Length>
+            <Count>110926</Count>
+          </LengthDistributionItem>
+        </LengthDistribution>
+      </ColumnLengthDistributionProfile>
+      <CandidateKeyProfile IsExact="true" ProfileRequestID="KeyReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <KeyColumns>
+          <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </KeyColumns>
+        <IsExactKey>true</IsExactKey>
+      </CandidateKeyProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>110926</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Name" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>19748</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Zeus</Value>
+            <Count>174</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>King</Value>
+            <Count>113</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Pepper</Value>
+            <Count>116</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Sadie</Value>
+            <Count>165</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bear</Value>
+            <Count>145</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lucky</Value>
+            <Count>153</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Mia</Value>
+            <Count>125</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Chloe</Value>
+            <Count>136</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Cookie</Value>
+            <Count>168</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lucy</Value>
+            <Count>263</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Baby</Value>
+            <Count>118</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bailey</Value>
+            <Count>122</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Oreo</Value>
+            <Count>180</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Luna</Value>
+            <Count>406</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Buddy</Value>
+            <Count>262</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Milo</Value>
+            <Count>138</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Rocky</Value>
+            <Count>293</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lily</Value>
+            <Count>138</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Max</Value>
+            <Count>428</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Coco</Value>
+            <Count>269</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lola</Value>
+            <Count>210</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Toby</Value>
+            <Count>147</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Duke</Value>
+            <Count>144</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Marley</Value>
+            <Count>121</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Unknown</Value>
+            <Count>38670</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Charlie</Value>
+            <Count>264</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Chico</Value>
+            <Count>141</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Daisy</Value>
+            <Count>296</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Princess</Value>
+            <Count>264</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Lady</Value>
+            <Count>124</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bella</Value>
+            <Count>431</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Molly</Value>
+            <Count>139</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Shadow</Value>
+            <Count>163</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Smokey</Value>
+            <Count>111</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Blue</Value>
+            <Count>232</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Nala</Value>
+            <Count>131</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Jack</Value>
+            <Count>161</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Date_of_Birth" SqlDbType="Date" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>7085</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Animal_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>5</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>Cat</Value>
+            <Count>44332</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Bird</Value>
+            <Count>586</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Dog</Value>
+            <Count>59404</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>Other</Value>
+            <Count>6582</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Stray_Map_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>16</NumberOfDistinctValues>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Color_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>595</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>CL599</Value>
+            <Count>114</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL291</Value>
+            <Count>459</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL419</Value>
+            <Count>1343</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL752</Value>
+            <Count>113</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL248</Value>
+            <Count>283</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL595</Value>
+            <Count>2023</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL527</Value>
+            <Count>591</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL431</Value>
+            <Count>940</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL467</Value>
+            <Count>11438</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL177</Value>
+            <Count>230</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL727</Value>
+            <Count>1601</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL447</Value>
+            <Count>122</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL303</Value>
+            <Count>301</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL495</Value>
+            <Count>3432</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL399</Value>
+            <Count>221</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL475</Value>
+            <Count>790</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL709</Value>
+            <Count>675</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL708</Value>
+            <Count>757</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL616</Value>
+            <Count>709</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL471</Value>
+            <Count>231</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL259</Value>
+            <Count>236</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL204</Value>
+            <Count>118</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL178</Value>
+            <Count>138</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL432</Value>
+            <Count>125</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL521</Value>
+            <Count>544</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL396</Value>
+            <Count>470</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL668</Value>
+            <Count>168</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL719</Value>
+            <Count>438</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL637</Value>
+            <Count>452</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL759</Value>
+            <Count>3868</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL608</Value>
+            <Count>778</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL352</Value>
+            <Count>459</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL356</Value>
+            <Count>165</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL658</Value>
+            <Count>2019</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL703</Value>
+            <Count>128</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL702</Value>
+            <Count>381</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL351</Value>
+            <Count>375</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL324</Value>
+            <Count>1118</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL636</Value>
+            <Count>508</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL730</Value>
+            <Count>143</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL585</Value>
+            <Count>5059</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL513</Value>
+            <Count>161</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL565</Value>
+            <Count>204</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL590</Value>
+            <Count>6758</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL263</Value>
+            <Count>9593</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL748</Value>
+            <Count>2708</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL193</Value>
+            <Count>2820</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL573</Value>
+            <Count>467</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL705</Value>
+            <Count>1988</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL257</Value>
+            <Count>1594</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL483</Value>
+            <Count>1666</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL214</Value>
+            <Count>362</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL543</Value>
+            <Count>260</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL317</Value>
+            <Count>3277</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL368</Value>
+            <Count>2327</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL647</Value>
+            <Count>2070</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL715</Value>
+            <Count>418</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL347</Value>
+            <Count>2967</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL305</Value>
+            <Count>152</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL508</Value>
+            <Count>205</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL360</Value>
+            <Count>125</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL659</Value>
+            <Count>134</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL652</Value>
+            <Count>2471</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL194</Value>
+            <Count>923</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL256</Value>
+            <Count>213</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL376</Value>
+            <Count>1722</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL468</Value>
+            <Count>2018</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL373</Value>
+            <Count>370</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL408</Value>
+            <Count>271</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL286</Value>
+            <Count>3426</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL554</Value>
+            <Count>500</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL449</Value>
+            <Count>423</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL646</Value>
+            <Count>1300</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL737</Value>
+            <Count>223</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL466</Value>
+            <Count>2372</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL270</Value>
+            <Count>157</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL197</Value>
+            <Count>112</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL247</Value>
+            <Count>3145</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL524</Value>
+            <Count>130</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL768</Value>
+            <Count>588</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL531</Value>
+            <Count>119</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL473</Value>
+            <Count>141</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>CL509</Value>
+            <Count>236</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnValueDistributionProfile IsExact="true" ProfileRequestID="ValueDistReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Breed_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <NumberOfDistinctValues>2629</NumberOfDistinctValues>
+        <ValueDistribution>
+          <ValueDistributionItem>
+            <Value>BR5316</Value>
+            <Count>416</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3845</Value>
+            <Count>140</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5692</Value>
+            <Count>557</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5788</Value>
+            <Count>113</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3520</Value>
+            <Count>573</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4984</Value>
+            <Count>130</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3798</Value>
+            <Count>211</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5974</Value>
+            <Count>329</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5134</Value>
+            <Count>6442</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4289</Value>
+            <Count>111</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5149</Value>
+            <Count>418</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5337</Value>
+            <Count>347</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5837</Value>
+            <Count>178</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4956</Value>
+            <Count>464</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5564</Value>
+            <Count>126</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4844</Value>
+            <Count>29506</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5158</Value>
+            <Count>136</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3741</Value>
+            <Count>119</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3978</Value>
+            <Count>1146</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5751</Value>
+            <Count>188</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5455</Value>
+            <Count>191</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4467</Value>
+            <Count>250</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5096</Value>
+            <Count>183</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5478</Value>
+            <Count>504</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4407</Value>
+            <Count>151</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3863</Value>
+            <Count>180</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3430</Value>
+            <Count>266</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5311</Value>
+            <Count>145</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3882</Value>
+            <Count>119</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4996</Value>
+            <Count>115</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4842</Value>
+            <Count>2964</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3415</Value>
+            <Count>116</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5595</Value>
+            <Count>743</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4522</Value>
+            <Count>942</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5465</Value>
+            <Count>116</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5065</Value>
+            <Count>952</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5825</Value>
+            <Count>379</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5953</Value>
+            <Count>343</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5425</Value>
+            <Count>5771</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5273</Value>
+            <Count>142</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5473</Value>
+            <Count>138</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5028</Value>
+            <Count>756</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4893</Value>
+            <Count>220</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5433</Value>
+            <Count>208</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5437</Value>
+            <Count>307</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5445</Value>
+            <Count>137</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3620</Value>
+            <Count>212</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5330</Value>
+            <Count>160</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4867</Value>
+            <Count>730</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3840</Value>
+            <Count>295</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR6004</Value>
+            <Count>1210</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3968</Value>
+            <Count>191</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5166</Value>
+            <Count>161</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4368</Value>
+            <Count>176</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4836</Value>
+            <Count>146</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5978</Value>
+            <Count>526</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5392</Value>
+            <Count>575</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3633</Value>
+            <Count>152</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3672</Value>
+            <Count>244</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3827</Value>
+            <Count>1485</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3742</Value>
+            <Count>794</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4747</Value>
+            <Count>212</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3609</Value>
+            <Count>2497</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4054</Value>
+            <Count>336</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR6020</Value>
+            <Count>492</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3647</Value>
+            <Count>478</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4512</Value>
+            <Count>504</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4471</Value>
+            <Count>6796</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3674</Value>
+            <Count>216</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5990</Value>
+            <Count>352</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4187</Value>
+            <Count>301</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3864</Value>
+            <Count>778</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR6003</Value>
+            <Count>214</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3814</Value>
+            <Count>611</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5011</Value>
+            <Count>248</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4573</Value>
+            <Count>1456</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4816</Value>
+            <Count>940</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3930</Value>
+            <Count>113</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4416</Value>
+            <Count>5578</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4295</Value>
+            <Count>1291</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3709</Value>
+            <Count>1754</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5660</Value>
+            <Count>114</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5975</Value>
+            <Count>539</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4650</Value>
+            <Count>121</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3458</Value>
+            <Count>494</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4886</Value>
+            <Count>185</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4796</Value>
+            <Count>147</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3823</Value>
+            <Count>130</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4282</Value>
+            <Count>336</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR5294</Value>
+            <Count>145</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4966</Value>
+            <Count>320</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3752</Value>
+            <Count>115</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR3883</Value>
+            <Count>446</Count>
+          </ValueDistributionItem>
+          <ValueDistributionItem>
+            <Value>BR4701</Value>
+            <Count>203</Count>
+          </ValueDistributionItem>
+        </ValueDistribution>
+      </ColumnValueDistributionProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>A\d\d\d\d\d\d</RegexText>
+            <Frequency>100</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Name" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>UNKNOWN</RegexText>
+            <Frequency>35</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\*\p{L}+</RegexText>
+            <Frequency>22</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>\p{L}+</RegexText>
+            <Frequency>38</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Animal_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>DOG</RegexText>
+            <Frequency>54</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>CAT</RegexText>
+            <Frequency>40</Frequency>
+          </PatternDistributionItem>
+          <PatternDistributionItem>
+            <RegexText>OTHER</RegexText>
+            <Frequency>6</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="true">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Stray_Map_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>SM780\d\d</RegexText>
+            <Frequency>100</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Color_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>CL\d\d\d</RegexText>
+            <Frequency>100</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <ColumnPatternProfile ProfileRequestID="PatternReq" IsExact="false">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <Column Name="Breed_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <TopRegexPatterns>
+          <PatternDistributionItem>
+            <RegexText>BR\d\d\d\d</RegexText>
+            <Frequency>100</Frequency>
+          </PatternDistributionItem>
+        </TopRegexPatterns>
+      </ColumnPatternProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Breed_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Color_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Stray_Map_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Animal_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Date_of_Birth" SqlDbType="Date" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Animal_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Name" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>true</IsExactFD>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="FDReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Breed_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Stray_Map_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>false</IsExactFD>
+        <FDStrength>0.9998558</FDStrength>
+        <FDViolations>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR3732</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>6</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR3915</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>93</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR4198</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>30</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR4416</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>5577</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR4420</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>9</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR4471</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>6794</SupportCount>
+            <ViolationCount>2</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR4522</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>940</SupportCount>
+            <ViolationCount>2</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR4816</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>939</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR4844</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>29505</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR4867</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>729</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR5065</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>951</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR5134</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>6441</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR5425</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>5770</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>BR5658</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>22</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+        </FDViolations>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="FDReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Color_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Stray_Map_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>false</IsExactFD>
+        <FDStrength>0.9998558</FDStrength>
+        <FDViolations>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL194</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>922</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL247</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>3144</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL256</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>212</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL317</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>3275</SupportCount>
+            <ViolationCount>2</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL324</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>1117</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL347</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>2966</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL431</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>939</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL466</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>2371</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL495</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>3430</SupportCount>
+            <ViolationCount>2</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL508</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>204</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL595</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>2022</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL705</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>1987</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>CL759</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>3866</SupportCount>
+            <ViolationCount>2</ViolationCount>
+          </FDViolationItem>
+        </FDViolations>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="FDReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Animal_Type" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Stray_Map_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>false</IsExactFD>
+        <FDStrength>0.9998558</FDStrength>
+        <FDViolations>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>Cat</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>44329</SupportCount>
+            <ViolationCount>3</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>Dog</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>59393</SupportCount>
+            <ViolationCount>11</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>Other</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>6580</SupportCount>
+            <ViolationCount>2</ViolationCount>
+          </FDViolationItem>
+        </FDViolations>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="FDReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Date_of_Birth" SqlDbType="Date" MaxLength="0" Precision="255" Scale="255" LCID="-1" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Stray_Map_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>false</IsExactFD>
+        <FDStrength>0.9998558</FDStrength>
+        <FDViolations>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue IsDBNull="true" />
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>423</SupportCount>
+            <ViolationCount>8</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>2015-09-23T00:00:00.0000000</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>58</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>2019-02-20T00:00:00.0000000</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>25</SupportCount>
+            <ViolationCount>2</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>2019-02-22T00:00:00.0000000</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>13</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>2020-08-20T00:00:00.0000000</ColumnValue>
+            </DeterminantValues>
+            <DependentValue>SM78024</DependentValue>
+            <SupportCount>1</SupportCount>
+            <ViolationCount>2</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>2020-09-19T00:00:00.0000000</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>9</SupportCount>
+            <ViolationCount>2</ViolationCount>
+          </FDViolationItem>
+        </FDViolations>
+      </FunctionalDependencyProfile>
+      <FunctionalDependencyProfile IsExact="true" ProfileRequestID="FDReq">
+        <DataSourceID>{778211DE-02EA-4DA8-98DE-1977BE3E6DEF}</DataSourceID>
+        <Table DataSource="LAPTOP-B19IHBEF" Database="AustinAnimalCenter_Staging" Schema="dbo" Table="StgAnimal" RowCount="110926" />
+        <DeterminantColumns>
+          <Column Name="Name" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        </DeterminantColumns>
+        <DependentColumn Name="Stray_Map_ID" SqlDbType="NVarChar" MaxLength="50" Precision="255" Scale="255" LCID="1033" CodePage="0" IsNullable="true" StringCompareOptions="0" />
+        <IsExactFD>false</IsExactFD>
+        <FDStrength>0.9998738</FDStrength>
+        <FDViolations>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>*Chaos</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>2</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>*Ebony</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>11</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>*Nickolas</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>1</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>*Robbie</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>6</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>*Tallulah</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>5</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>*Tony</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>24</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>Daisy</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>295</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>Harley</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>105</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>Kira</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>26</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>Kobe</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>23</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>Ruby</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>99</SupportCount>
+            <ViolationCount>1</ViolationCount>
+          </FDViolationItem>
+          <FDViolationItem>
+            <DeterminantValues>
+              <ColumnValue>Unknown</ColumnValue>
+            </DeterminantValues>
+            <DependentValue IsDBNull="true" />
+            <SupportCount>38667</SupportCount>
+            <ViolationCount>3</ViolationCount>
+          </FDViolationItem>
+        </FDViolations>
+      </FunctionalDependencyProfile>
+    </Profiles>
+  </DataProfileOutput>
+</DataProfile>

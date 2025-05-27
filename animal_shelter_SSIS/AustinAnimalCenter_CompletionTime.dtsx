@@ -1,0 +1,1922 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/30/2025 10:02:28 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-B19IHBEF"
+  DTS:CreatorName="LAPTOP-B19IHBEF\thaks"
+  DTS:DTSID="{20D536F0-8708-43BD-A43B-A80898F380E2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{126A241E-7776-418B-9BF5-711F5FB71344}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E51DA2DF-58DB-43DA-B954-FFFB239B3D17}"
+      DTS:ObjectName="LAPTOP-B19IHBEF.AustinAnimalCenter_DW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LAPTOP-B19IHBEF;Initial Catalog=AustinAnimalCenter_DW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{E51DA2DF-58DB-43DA-B954-FFFB239B3D17}LAPTOP-B19IHBEF.AustinAnimalCenter_DW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Calulate process time in hours"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{db454ff6-626f-445f-bf75-f558ae13710b}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Calulate process time in hours"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:EventHandlers>
+        <DTS:EventHandler
+          DTS:refId="Package\Calulate process time in hours.EventHandlers[OnPreExecute]"
+          DTS:CreationName="OnPreExecute"
+          DTS:DTSID="{9efd2d82-d33e-46bd-91bd-b3c1e94bd71a}"
+          DTS:EventID="0"
+          DTS:EventName="OnPreExecute"
+          DTS:LocaleID="-1">
+          <DTS:Variables>
+            <DTS:Variable
+              DTS:CreationName=""
+              DTS:Description="The propagate property of the event"
+              DTS:DTSID="{33583fe9-5576-48ee-be78-4ac648ae666d}"
+              DTS:IncludeInDebugDump="6789"
+              DTS:Namespace="System"
+              DTS:ObjectName="Propagate">
+              <DTS:VariableValue
+                DTS:DataType="11">-1</DTS:VariableValue>
+            </DTS:Variable>
+          </DTS:Variables>
+          <DTS:Executables>
+            <DTS:Executable
+              DTS:refId="Package\Calulate process time in hours.EventHandlers[OnPreExecute]\Execute SQL Task"
+              DTS:CreationName="Microsoft.ExecuteSQLTask"
+              DTS:Description="Execute SQL Task"
+              DTS:DTSID="{09b5372a-ec1e-4838-9373-6b6860b39bd5}"
+              DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+              DTS:LocaleID="-1"
+              DTS:ObjectName="Execute SQL Task">
+              <DTS:Variables />
+              <DTS:ObjectData>
+                <SQLTask:SqlTaskData
+                  SQLTask:Connection="{82A130F1-58D4-4A88-A9D3-7F9FD69D28A2}"
+                  SQLTask:SqlStatementSource="truncate table dbo.Completion_Time" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+              </DTS:ObjectData>
+            </DTS:Executable>
+          </DTS:Executables>
+        </DTS:EventHandler>
+      </DTS:EventHandlers>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Calulate process time in hours\Derived accm_txn_complete_time"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived accm_txn_complete_time"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Inputs[Derived Column Input].Columns[oriaccm_txn_complete_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="oriaccm_txn_complete_time"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output].Columns[oriaccm_txn_complete_time]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output].Columns[oriaccm_txn_complete_time]}) ? #{Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]} : #{Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output].Columns[oriaccm_txn_complete_time]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(oriaccm_txn_complete_time) ? accm_txn_complete_time : oriaccm_txn_complete_time</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Inputs[Derived Column Input].Columns[accm_txn_complete_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="accm_txn_complete_time"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calulate process time in hours\Derived txn_process_time_hours"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived txn_process_time_hours"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Calulate process time in hours\Derived txn_process_time_hours.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calulate process time in hours\Derived txn_process_time_hours.Inputs[Derived Column Input].Columns[accm_txn_complete_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="accm_txn_complete_time"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]" />
+                    <inputColumn
+                      refId="Package\Calulate process time in hours\Derived txn_process_time_hours.Inputs[Derived Column Input].Columns[accm_txn_create_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="accm_txn_create_time"
+                      lineageId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output].Columns[accm_txn_create_time]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calulate process time in hours\Derived txn_process_time_hours.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Calulate process time in hours\Derived txn_process_time_hours.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\Derived txn_process_time_hours.Outputs[Derived Column Output].Columns[txn_process_time_hours]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Calulate process time in hours\Derived txn_process_time_hours.Outputs[Derived Column Output].Columns[txn_process_time_hours]"
+                      name="txn_process_time_hours"
+                      precision="18"
+                      scale="4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_NUMERIC,18,4)([DATEDIFF]("SS",#{Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output].Columns[accm_txn_create_time]},#{Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]}) / 3600.0)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_NUMERIC,18,4)(DATEDIFF("SS",accm_txn_create_time,accm_txn_complete_time) / 3600.0)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calulate process time in hours\Derived txn_process_time_hours.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Calulate process time in hours\Derived txn_process_time_hours.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\Derived txn_process_time_hours.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\Derived txn_process_time_hours.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\Derived txn_process_time_hours.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\Derived txn_process_time_hours.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calulate process time in hours\FactAnimalEvent Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="FactAnimalEvent Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[FactAnimalEvent]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[FactAnimalEvent]) [refTable]
+where [refTable].[Event_ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Event_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IntakeID" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Animal_SK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Intake_Type" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Intake_Date_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="IntakeTimeMonthYear" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="Intake_Condition" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Sex_upon_Intake" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Age_upon_Intake_months" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Found_Location" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OutcomeID" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Outcome_Type" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Outcome_Subtype" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Outcome_Date_ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="OutcomeTimeMonthYear" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="Sex_upon_Outcome" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Age_upon_Outcome_months" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Stay_Duration_Days" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="InsertDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ModifiedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="accm_txn_create_time" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="accm_txn_complete_time" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="txn_process_time_hours" dataType="DT_R4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[Event_ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Inputs[Lookup Input].Columns[Event_ID]"
+                      cachedDataType="i4"
+                      cachedName="Event_ID"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[Event_ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Event_ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="IgnoreFailure"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output].Columns[accm_txn_create_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output].Columns[accm_txn_create_time]"
+                      name="accm_txn_create_time"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">accm_txn_create_time</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output].Columns[oriaccm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output].Columns[oriaccm_txn_complete_time]"
+                      name="oriaccm_txn_complete_time"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">accm_txn_complete_time</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calulate process time in hours\Load Data to Extended Fact Table"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Load Data to Extended Fact Table"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE FactAnimalEvent
+SET 
+    accm_txn_complete_time = ?, 
+    txn_process_time_hours = ?
+WHERE Event_ID = ?
+</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input].Columns[accm_txn_complete_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="accm_txn_complete_time"
+                      externalMetadataColumnId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]" />
+                    <inputColumn
+                      refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input].Columns[txn_process_time_hours]"
+                      cachedDataType="numeric"
+                      cachedName="txn_process_time_hours"
+                      cachedPrecision="18"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Calulate process time in hours\Derived txn_process_time_hours.Outputs[Derived Column Output].Columns[txn_process_time_hours]" />
+                    <inputColumn
+                      refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input].Columns[Event_ID]"
+                      cachedDataType="i4"
+                      cachedName="Event_ID"
+                      externalMetadataColumnId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[Event_ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="dbTimeStamp"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="r4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calulate process time in hours\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Completion_Time]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calulate process time in hours\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[Event_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Event_ID]"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[Event_ID]"
+                      name="Event_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_complete_time]"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]"
+                      name="accm_txn_complete_time"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Event_ID]"
+                      dataType="i4"
+                      name="Event_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_complete_time" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Event_ID]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Event_ID]"
+                      name="Event_ID" />
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accm_txn_complete_time]"
+                      name="accm_txn_complete_time" />
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Calulate process time in hours.Paths[Derived Column Output]"
+              endId="Package\Calulate process time in hours\Derived txn_process_time_hours.Inputs[Derived Column Input]"
+              name="Derived Column Output"
+              startId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Calulate process time in hours.Paths[Derived Column Output1]"
+              endId="Package\Calulate process time in hours\Load Data to Extended Fact Table.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Calulate process time in hours\Derived txn_process_time_hours.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Calulate process time in hours.Paths[Lookup Match Output]"
+              endId="Package\Calulate process time in hours\Derived accm_txn_complete_time.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Calulate process time in hours.Paths[OLE DB Source Output]"
+              endId="Package\Calulate process time in hours\FactAnimalEvent Lookup.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Calulate process time in hours\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Create Completion time SQL table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{51b98b1c-eab4-49ed-a517-68a7fbd66356}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Create Completion time SQL table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Create Completion time SQL table\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Create Completion time SQL table\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Create Completion time SQL table\Derived Column.Inputs[Derived Column Input].Columns[accm_txn_create_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="accm_txn_create_time"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_create_time]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Create Completion time SQL table\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Create Completion time SQL table\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\Derived Column.Outputs[Derived Column Output].Columns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Create Completion time SQL table\Derived Column.Outputs[Derived Column Output].Columns[accm_txn_complete_time]"
+                      name="accm_txn_complete_time"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)[DATEADD]("MINUTE",3,#{Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_create_time]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)DATEADD("MINUTE",3,accm_txn_create_time)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Create Completion time SQL table\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Create Completion time SQL table\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Create Completion time SQL table\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Completion_Time]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Create Completion time SQL table\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Create Completion time SQL table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Event_ID]"
+                      cachedDataType="i4"
+                      cachedName="Event_ID"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Event_ID]"
+                      lineageId="Package\Create Completion time SQL table\Union All.Outputs[Union All Output 1].Columns[Event_ID]" />
+                    <inputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[accm_txn_complete_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="accm_txn_complete_time"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accm_txn_complete_time]"
+                      lineageId="Package\Create Completion time SQL table\Union All.Outputs[Union All Output 1].Columns[accm_txn_complete_time]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Event_ID]"
+                      dataType="i4"
+                      name="Event_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_complete_time" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Create Completion time SQL table\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Create Completion time SQL table\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Create Completion time SQL table\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[FactAnimalEvent]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Create Completion time SQL table\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LAPTOP-B19IHBEF.AustinAnimalCenter_DW]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Event_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Event_ID]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Event_ID]"
+                      name="Event_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[IntakeID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IntakeID]"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[IntakeID]"
+                      name="IntakeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Intake_Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Intake_Type]"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Intake_Type]"
+                      name="Intake_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Intake_Date_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Intake_Date_ID]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Intake_Date_ID]"
+                      name="Intake_Date_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[IntakeTimeMonthYear]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IntakeTimeMonthYear]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[IntakeTimeMonthYear]"
+                      name="IntakeTimeMonthYear"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Intake_Condition]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Intake_Condition]"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Intake_Condition]"
+                      name="Intake_Condition"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sex_upon_Intake]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sex_upon_Intake]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sex_upon_Intake]"
+                      name="Sex_upon_Intake"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Age_upon_Intake_months]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Age_upon_Intake_months]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Age_upon_Intake_months]"
+                      name="Age_upon_Intake_months"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Found_Location]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Found_Location]"
+                      length="100"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Found_Location]"
+                      name="Found_Location"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[OutcomeID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OutcomeID]"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[OutcomeID]"
+                      name="OutcomeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Outcome_Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Outcome_Type]"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Outcome_Type]"
+                      name="Outcome_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Outcome_Subtype]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Outcome_Subtype]"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Outcome_Subtype]"
+                      name="Outcome_Subtype"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Outcome_Date_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Outcome_Date_ID]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Outcome_Date_ID]"
+                      name="Outcome_Date_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[OutcomeTimeMonthYear]"
+                      dataType="dbTimeStamp2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OutcomeTimeMonthYear]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[OutcomeTimeMonthYear]"
+                      name="OutcomeTimeMonthYear"
+                      scale="7"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sex_upon_Outcome]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sex_upon_Outcome]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sex_upon_Outcome]"
+                      name="Sex_upon_Outcome"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Age_upon_Outcome_months]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Age_upon_Outcome_months]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Age_upon_Outcome_months]"
+                      name="Age_upon_Outcome_months"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Stay_Duration_Days]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Stay_Duration_Days]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Stay_Duration_Days]"
+                      name="Stay_Duration_Days"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InsertDate]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[InsertDate]"
+                      name="InsertDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      name="ModifiedDate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_create_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_create_time]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_create_time]"
+                      name="accm_txn_create_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_complete_time]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[accm_txn_complete_time]"
+                      name="accm_txn_complete_time"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[txn_process_time_hours]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[txn_process_time_hours]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[txn_process_time_hours]"
+                      name="txn_process_time_hours"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Animal_SK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Animal_SK]"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Animal_SK]"
+                      name="Animal_SK"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Event_ID]"
+                      dataType="i4"
+                      name="Event_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IntakeID]"
+                      dataType="wstr"
+                      length="50"
+                      name="IntakeID" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Intake_Type]"
+                      dataType="wstr"
+                      length="50"
+                      name="Intake_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Intake_Date_ID]"
+                      dataType="i4"
+                      name="Intake_Date_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[IntakeTimeMonthYear]"
+                      dataType="dbTimeStamp2"
+                      name="IntakeTimeMonthYear"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Intake_Condition]"
+                      dataType="wstr"
+                      length="50"
+                      name="Intake_Condition" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sex_upon_Intake]"
+                      dataType="i4"
+                      name="Sex_upon_Intake" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Age_upon_Intake_months]"
+                      dataType="r8"
+                      name="Age_upon_Intake_months" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Found_Location]"
+                      dataType="wstr"
+                      length="100"
+                      name="Found_Location" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OutcomeID]"
+                      dataType="wstr"
+                      length="50"
+                      name="OutcomeID" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Outcome_Type]"
+                      dataType="wstr"
+                      length="50"
+                      name="Outcome_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Outcome_Subtype]"
+                      dataType="wstr"
+                      length="50"
+                      name="Outcome_Subtype" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Outcome_Date_ID]"
+                      dataType="i4"
+                      name="Outcome_Date_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OutcomeTimeMonthYear]"
+                      dataType="dbTimeStamp2"
+                      name="OutcomeTimeMonthYear"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sex_upon_Outcome]"
+                      dataType="i4"
+                      name="Sex_upon_Outcome" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Age_upon_Outcome_months]"
+                      dataType="r8"
+                      name="Age_upon_Outcome_months" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Stay_Duration_Days]"
+                      dataType="i4"
+                      name="Stay_Duration_Days" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      name="InsertDate" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      name="ModifiedDate" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_create_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_create_time" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      name="accm_txn_complete_time" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[txn_process_time_hours]"
+                      dataType="r4"
+                      name="txn_process_time_hours" />
+                    <externalMetadataColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Animal_SK]"
+                      dataType="i4"
+                      name="Animal_SK" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Event_ID]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Event_ID]"
+                      name="Event_ID" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IntakeID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IntakeID]"
+                      name="IntakeID" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Animal_SK]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Animal_SK]"
+                      name="Animal_SK" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Intake_Type]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Intake_Type]"
+                      name="Intake_Type" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Intake_Date_ID]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Intake_Date_ID]"
+                      name="Intake_Date_ID" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IntakeTimeMonthYear]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[IntakeTimeMonthYear]"
+                      name="IntakeTimeMonthYear"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Intake_Condition]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Intake_Condition]"
+                      name="Intake_Condition" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sex_upon_Intake]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sex_upon_Intake]"
+                      name="Sex_upon_Intake" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Age_upon_Intake_months]"
+                      dataType="r8"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Age_upon_Intake_months]"
+                      name="Age_upon_Intake_months" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Found_Location]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Found_Location]"
+                      name="Found_Location" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OutcomeID]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OutcomeID]"
+                      name="OutcomeID" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Outcome_Type]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Outcome_Type]"
+                      name="Outcome_Type" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Outcome_Subtype]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Outcome_Subtype]"
+                      name="Outcome_Subtype" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Outcome_Date_ID]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Outcome_Date_ID]"
+                      name="Outcome_Date_ID" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OutcomeTimeMonthYear]"
+                      dataType="dbTimeStamp2"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OutcomeTimeMonthYear]"
+                      name="OutcomeTimeMonthYear"
+                      scale="7" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sex_upon_Outcome]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sex_upon_Outcome]"
+                      name="Sex_upon_Outcome" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Age_upon_Outcome_months]"
+                      dataType="r8"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Age_upon_Outcome_months]"
+                      name="Age_upon_Outcome_months" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Stay_Duration_Days]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Stay_Duration_Days]"
+                      name="Stay_Duration_Days" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InsertDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[InsertDate]"
+                      name="InsertDate" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      name="ModifiedDate" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accm_txn_create_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accm_txn_create_time]"
+                      name="accm_txn_create_time" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[accm_txn_complete_time]"
+                      name="accm_txn_complete_time" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[txn_process_time_hours]"
+                      dataType="r4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[txn_process_time_hours]"
+                      name="txn_process_time_hours" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Create Completion time SQL table\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\Create Completion time SQL table\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Create Completion time SQL table\Union All.Inputs[Union All Input 1].Columns[Event_ID]"
+                      cachedDataType="i4"
+                      cachedName="Event_ID"
+                      lineageId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output].Columns[Event_ID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Create Completion time SQL table\Union All.Outputs[Union All Output 1].Columns[Event_ID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Create Completion time SQL table\Union All.Inputs[Union All Input 1].Columns[accm_txn_complete_time]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="accm_txn_complete_time"
+                      lineageId="Package\Create Completion time SQL table\Derived Column.Outputs[Derived Column Output].Columns[accm_txn_complete_time]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\Create Completion time SQL table\Union All.Outputs[Union All Output 1].Columns[accm_txn_complete_time]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Create Completion time SQL table\Union All.Inputs[Union All Input 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Create Completion time SQL table\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\Union All.Outputs[Union All Output 1].Columns[Event_ID]"
+                      dataType="i4"
+                      lineageId="Package\Create Completion time SQL table\Union All.Outputs[Union All Output 1].Columns[Event_ID]"
+                      name="Event_ID" />
+                    <outputColumn
+                      refId="Package\Create Completion time SQL table\Union All.Outputs[Union All Output 1].Columns[accm_txn_complete_time]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Create Completion time SQL table\Union All.Outputs[Union All Output 1].Columns[accm_txn_complete_time]"
+                      name="accm_txn_complete_time" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Create Completion time SQL table.Paths[Derived Column Output]"
+              endId="Package\Create Completion time SQL table\Union All.Inputs[Union All Input 1]"
+              name="Derived Column Output"
+              startId="Package\Create Completion time SQL table\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Create Completion time SQL table.Paths[OLE DB Source Output]"
+              endId="Package\Create Completion time SQL table\Derived Column.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Create Completion time SQL table\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Create Completion time SQL table.Paths[Union All Output 1]"
+              endId="Package\Create Completion time SQL table\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Union All Output 1"
+              startId="Package\Create Completion time SQL table\Union All.Outputs[Union All Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{8c9b570a-9028-4368-9cc5-afc0318b677b}"
+      DTS:From="Package\Create Completion time SQL table"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Calulate process time in hours" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="220,41.6"
+          Id="Package\Calulate process time in hours"
+          TopLeft="116.428571548693,154.058823446965" />
+        <NodeLayout
+          Size="237.6,41.6"
+          Id="Package\Create Completion time SQL table"
+          TopLeft="60,60" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="178.8,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="47.628571548693,52.458823446965"
+              Start="0,0"
+              End="47.628571548693,44.958823446965">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.2294117234825" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.2294117234825"
+                    Point2="0,26.2294117234825"
+                    Point3="4,26.2294117234825" />
+                  <mssgle:LineSegment
+                    End="43.628571548693,26.2294117234825" />
+                  <mssgle:CubicBezierSegment
+                    Point1="43.628571548693,26.2294117234825"
+                    Point2="47.628571548693,26.2294117234825"
+                    Point3="47.628571548693,30.2294117234825" />
+                  <mssgle:LineSegment
+                    End="47.628571548693,44.958823446965" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Calulate process time in hours">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="238.4,41.6"
+          Id="Package\Calulate process time in hours\Load Data to Extended Fact Table"
+          TopLeft="262.406592488827,498.761082938253" />
+        <NodeLayout
+          Size="232.8,41.6"
+          Id="Package\Calulate process time in hours\Derived txn_process_time_hours"
+          TopLeft="263.725274177113,422.453392132275" />
+        <NodeLayout
+          Size="193.6,41.6"
+          Id="Package\Calulate process time in hours\FactAnimalEvent Lookup"
+          TopLeft="286.63736297637,257.516740925083" />
+        <NodeLayout
+          Size="237.6,41.6"
+          Id="Package\Calulate process time in hours\Derived accm_txn_complete_time"
+          TopLeft="259.164835013063,343.43529286871" />
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Calulate process time in hours\OLE DB Source"
+          TopLeft="307.142857796684,175.2" />
+        <EdgeLayout
+          Id="Package\Calulate process time in hours.Paths[Derived Column Output]"
+          TopLeft="379.045054595088,385.03529286871">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.4180992635643"
+              Start="0,0"
+              End="0,29.9180992635643">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.9180992635643" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calulate process time in hours.Paths[OLE DB Source Output]"
+          TopLeft="382.690110386527,216.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40.716740925083"
+              Start="0,0"
+              End="0,33.216740925083">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.216740925083" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calulate process time in hours.Paths[Lookup Match Output]"
+          TopLeft="380.701098994717,299.116740925083">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.3185519436275"
+              Start="0,0"
+              End="0,36.8185519436275">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.8185519436275" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,12.6045884718137,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calulate process time in hours.Paths[Derived Column Output1]"
+          TopLeft="380.86593333297,464.053392132275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.7076908059781"
+              Start="0,0"
+              End="0,27.2076908059781">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.2076908059781" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <DtsEventHandler
+    design-time-name="Package\Calulate process time in hours.EventHandlers[OnPreExecute]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Calulate process time in hours.EventHandlers[OnPreExecute]\Execute SQL Task"
+          TopLeft="358.999994650483,115.999998271465" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calulate process time in hours\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calulate process time in hours\FactAnimalEvent Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[FactAnimalEvent]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Create Completion time SQL table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Create Completion time SQL table\OLE DB Source"
+          TopLeft="265.714286279922,41.2941176108629" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Create Completion time SQL table\OLE DB Destination"
+          TopLeft="234.999996498227,320.999995216727" />
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Create Completion time SQL table\Union All"
+          TopLeft="259.285714837666,225.588235096381" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Create Completion time SQL table\Derived Column"
+          TopLeft="213.571429026066,144.52941163802" />
+        <EdgeLayout
+          Id="Package\Create Completion time SQL table.Paths[Union All Output 1]"
+          TopLeft="319.742855667947,267.188235096381">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53.8117601203463"
+              Start="0,0"
+              End="0,46.3117601203463">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.3117601203463" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Create Completion time SQL table.Paths[OLE DB Source Output]"
+          TopLeft="340.514286279922,82.8941176108629">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-50.5428572538557,61.6352940271571"
+              Start="0,0"
+              End="-50.5428572538557,54.1352940271571">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.8176470135785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.8176470135785"
+                    Point2="0,30.8176470135785"
+                    Point3="-4,30.8176470135785" />
+                  <mssgle:LineSegment
+                    End="-46.5428572538557,30.8176470135785" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-46.5428572538557,30.8176470135785"
+                    Point2="-50.5428572538557,30.8176470135785"
+                    Point3="-50.5428572538557,34.8176470135785" />
+                  <mssgle:LineSegment
+                    End="-50.5428572538557,54.1352940271571" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Create Completion time SQL table.Paths[Derived Column Output]"
+          TopLeft="289.971429026066,186.12941163802">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.3142858115994,39.4588234583606"
+              Start="0,0"
+              End="29.3142858115994,31.9588234583606">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7294117291803" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.7294117291803"
+                    Point2="0,19.7294117291803"
+                    Point3="4,19.7294117291803" />
+                  <mssgle:LineSegment
+                    End="25.3142858115994,19.7294117291803" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.3142858115994,19.7294117291803"
+                    Point2="29.3142858115994,19.7294117291803"
+                    Point3="29.3142858115994,23.7294117291803" />
+                  <mssgle:LineSegment
+                    End="29.3142858115994,31.9588234583606" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Create Completion time SQL table\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Create Completion time SQL table\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
